@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ALmaz</title>
+</head>
+<body>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			background-color: #d7e089;
+		}
+		.word-box{
+			margin-top: 10%;
+			text-align: center;
+			font-size: 35px;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			-o-user-select: none;
+			user-select: none;
+		}
+		.timer-box{
+			margin-top: 5%;
+			text-align: center;
+			font-size: 35px;
+		}
+		#text{
+			width: 70%;
+			height: 50px;
+			border: 1px solid #e5ffb8;
+			font-size: 25px;
+			background-color: #fff;
+			border-radius: 20px;
+			margin-top: 5%;
+			margin-left: 15%;
+			color: #ffa770;
+			text-align: center;
+		}
+	</style>
+	<div class="word-box">
+		<p class="word" id="word"></p>
+	</div>
+	<div class="timer-box"><p class="timer" id="timer"></p></div>
+	<div><input type="text" name="text" id="text"></div>
+	<div class="modal-info" id="info"></div>
+	<div class="modal-winner" id="winner"></div>
+	<div class="modal-gameover" id="gameover"></div>
+	<script type="text/javascript">
+		let array = ["Anaesthetist","Ethnicity","Philosophical","Statistics","Onomatopoeia","Honorificabilitudinitatibus","Irregardless","Disinterested","Lieutenant","geography","thistle","illegitimate"];
+		let word = document.getElementById("word");
+		let text = document.getElementById("text");
+		let timer = document.getElementById("timer");
+		let randomArr = Math.floor(Math.random() * array.length);
+		word.innerHTML = array[randomArr];
+		let timernum = 6;
+		timer.innerHTML = timernum;
+		setInterval(function () {
+			timer.innerHTML = timernum;
+			if (timernum > 0) {
+				timernum--;
+			}		
+		}, 899);
+		setTimeout(function(){
+			let texPlayer = String(text.value);
+			console.log(texPlayer);
+			if (texPlayer.toLowerCase() !== array[randomArr].toLowerCase()) {
+				alert("GAME OVER DABILL");
+				location.reload();
+			}else{
+				alert("WINNER");
+				// randomArr = Math.floor(Math.random() * array.length);
+				// word.innerHTML = array[randomArr];
+				// timernum = 6;
+				alert("Но все ровно DEBILL");
+				location.reload();
+			}
+		},6200);
+	</script>
+</body>
+</html>
